@@ -11,7 +11,7 @@ class CharityProjectCreate(BaseModel):
     description: str = Field(min_length=10)
     full_amount: PositiveInt
 
-    model_config = ConfigDict(extra='forbid')
+    model_config = ConfigDict(extra='forbid', str_strip_whitespace=True)
 
 
 class CharityProjectUpdate(BaseModel):

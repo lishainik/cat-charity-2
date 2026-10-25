@@ -25,6 +25,7 @@ async def check_name_duplicate(
     Raises:
         HTTPException: Если проект с таким названием уже существует (400).
     """
+    
     project = await charity_project_crud.get_by_name(project_name, session)
     if project is not None and project.id != project_id:
         raise HTTPException(
@@ -89,7 +90,7 @@ def check_full_amount_not_less_invested(
         raise HTTPException(
             status_code=HTTPStatus.BAD_REQUEST,
             detail=(
-                'Нелья установить значение full_amount меньше уже '
+                'Нельзя установить значение full_amount меньше уже '
                 'вложенной суммы.'
             ),
         )

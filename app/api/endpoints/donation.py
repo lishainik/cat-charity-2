@@ -3,7 +3,7 @@ from fastapi import APIRouter
 from app.core.db import SessionDep
 from app.crud.donation import donation_crud
 from app.schemas.donation import (
-    DonationCreate, DonationDB, DonationFullInfoDB
+    DonationCreate, DonationFullInfoDB
 )
 from app.services.investment import invest_funds
 
@@ -29,7 +29,7 @@ async def get_all_donations(session: SessionDep):
 
 @router.post(
     '/',
-    response_model=DonationDB,
+    response_model=DonationFullInfoDB,
     description='Создать пожертвование.',
 )
 async def create_donation(donation_in: DonationCreate, session: SessionDep):
